@@ -20,14 +20,21 @@ under the License.
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <modelVersion>4.0.0</modelVersion>
 
+   <parent>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>artemis-pom</artifactId>
+      <version>2.0.0.amq-700005-redhat-1</version>
+   </parent>
+
    <groupId>com.gpte.redhat</groupId>
    <artifactId>fuse-msg-dev</artifactId>
    <packaging>pom</packaging>
    <name>Fuse Messaging Development Labs</name>
 
    <properties>
+      <activemq5-version>5.11.0.redhat-630262</activemq5-version>
       <udp-address>231.7.7.7</udp-address>
-<!--       <activemq.basedir>${project.basedir}/../../..</activemq.basedir> -->
+      <activemq.basedir>/Users/nandanjoshi/redhat/jboss-amq-7.0.0.redhat-1</activemq.basedir>
    </properties>
 
    <profiles>

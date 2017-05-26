@@ -97,14 +97,12 @@ public class ClusteredQueueExample {
 
             System.out.println("Got message: " + message0.getText() + " from node 0");
 
-	    /*
             TextMessage message1 = (TextMessage) consumer1.receive(5000);
 
 	    if (message1 != null) 
 		System.out.println("Got message: " + message1.getText() + " from node 1");
 	    else
 		System.out.println("Got NULL message on consumer1 from node 1");
-	    */
          }
       } finally {
          // Step 15. Be sure to close our resources!
