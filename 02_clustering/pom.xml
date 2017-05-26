@@ -21,12 +21,19 @@ under the License.
    <modelVersion>4.0.0</modelVersion>
 
    <groupId>com.gpte.redhat</groupId>
-   <artifactId>fuse-msg-dev</artifactId>
+   <artifactId>02_clustering</artifactId>
    <packaging>pom</packaging>
-   <name>Fuse Messaging Development Labs</name>
+   <version>2.0.0</version>
+   <name>ActiveMQ Artemis Clustered Examples</name>
 
+   <!-- Properties -->
    <properties>
-      <udp-address>231.7.7.7</udp-address>
+      <!--
+      Explicitly declaring the source encoding eliminates the following
+      message: [WARNING] Using platform encoding (UTF-8 actually) to copy
+      filtered resources, i.e. build is platform dependent!
+      -->
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 <!--       <activemq.basedir>${project.basedir}/../../..</activemq.basedir> -->
    </properties>
 
@@ -34,10 +41,8 @@ under the License.
       <profile>
          <id>release</id>
          <modules>
-            <module>02_clustering</module>
-            <module>04_clients</module>
+            <module>clustered-queue</module>
          </modules>
       </profile>
    </profiles>
-
 </project>
