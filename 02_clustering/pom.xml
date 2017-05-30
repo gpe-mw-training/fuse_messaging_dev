@@ -23,7 +23,8 @@ under the License.
    <groupId>com.gpte.redhat</groupId>
    <artifactId>02_clustering</artifactId>
    <packaging>pom</packaging>
-   <version>2.0.0</version>
+<!--    <version>2.0.0.amq-700005-redhat-1</version> -->
+   <version>2.1.0</version>
    <name>ActiveMQ Artemis Clustered Examples</name>
 
    <!-- Properties -->
