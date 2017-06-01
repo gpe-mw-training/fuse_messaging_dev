@@ -31,7 +31,7 @@ under the License.
    <name>ActiveMQ Artemis JMS Clustered Queue Example</name>
 
    <properties>
-      <activemq.basedir>/Users/nandanjoshi/redhat/jboss-amq-7.0.0.redhat-1</activemq.basedir>
+      <activemq.basedir>${env.AMQBASEDIR}</activemq.basedir>
    </properties>
 
    <dependencies>
