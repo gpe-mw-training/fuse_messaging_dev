@@ -29,7 +29,8 @@ under the License.
    <properties>
       <activemq5-version>5.11.0.redhat-630262</activemq5-version>
       <udp-address>231.7.7.7</udp-address>
-<!--       <activemq.basedir>/Users/nandanjoshi/redhat/jboss-amq-7.0.0.redhat-1</activemq.basedir> -->
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
       <activemq.basedir>${env.AMQBASEDIR}</activemq.basedir>
    </properties>
 
