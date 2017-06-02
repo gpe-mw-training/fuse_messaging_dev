@@ -1,4 +1,0 @@
-org/apache/amq/jms/TopicSender.class
-org/apache/amq/jms/QueueReceiver.class
-org/apache/amq/jms/QueueSender.class
-org/apache/amq/jms/TopicReceiver.class
