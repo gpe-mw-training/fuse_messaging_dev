@@ -28,28 +28,32 @@ under the License.
    </parent>
 
    <groupId>com.gpte.redhat</groupId>
-   <artifactId>02_clustering</artifactId>
+   <artifactId>05_security</artifactId>
    <packaging>pom</packaging>
-   <name>ActiveMQ Artemis Clustered Examples</name>
+   <name>ActiveMQ Artemis Standard Examples</name>
 
-   <!-- Properties -->
    <properties>
-      <!--
-      Explicitly declaring the source encoding eliminates the following
-      message: [WARNING] Using platform encoding (UTF-8 actually) to copy
-      filtered resources, i.e. build is platform dependent!
-      -->
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <activemq.basedir>${env.AMQBASEDIR}</activemq.basedir>
+      <udp-address>231.7.7.7</udp-address>
+      <activemq.basedir>${project.basedir}/../../..</activemq.basedir>
    </properties>
 
    <profiles>
       <profile>
          <id>release</id>
          <modules>
-            <module>clustered-queue</module>
-            <module>clustered-jgroups</module>
+            <module>security</module>
+            <module>security-ldap</module>
          </modules>
       </profile>
+      <profile>
+         <id>examples</id>
+         <modules>
+            <module>security</module>
+            <module>security-ldap</module>
+         </modules>
+      </profile>
+
    </profiles>
+
+
 </project>
