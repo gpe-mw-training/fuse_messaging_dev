@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file
@@ -28,6 +27,8 @@ under the License.
 
    <properties>
       <activemq5-version>5.11.0.redhat-630262</activemq5-version>
+      <slf4j.version>1.7.21</slf4j.version>
+      <qpid-jms-client.version>0.23.0</qpid-jms-client.version>
       <udp-address>231.7.7.7</udp-address>
       <maven.compiler.source>1.8</maven.compiler.source>
       <maven.compiler.target>1.8</maven.compiler.target>
@@ -35,6 +36,27 @@ under the License.
    </properties>
 
    <repositories>
+       <repository>
+          <name>Red Hat AMQ 7 Qpid JMS repository</name>
+           <id>amq-qpid-jms</id>
+           <url>file:///opt/repos/jboss-amq-qpid-jms-0.21.0.redhat-1-maven-repository/maven-repository</url>
+           <releases>
+               <enabled>true</enabled>
+           </releases>
+           <snapshots>
+               <enabled>false</enabled>
+           </snapshots>
+       </repository>
+                <repository>
+                    <id>jboss-earlyaccess-repository</id>
+                    <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
      <repository>
        <id>redhat-ga-repository</id>
        <name>Red Hat GA repository</name>
@@ -50,11 +72,33 @@ under the License.
    </repository>
    </repositories>
    <pluginRepositories>
-     <pluginRepository>
+   <pluginRepository>
+       <id>amq7-repository</id>
+      <name>Red Hat JBoss AMQ 7 repository</name>
+       <url>file:///opt/repos/jboss-amq-7.0.0-maven-repository/maven-repository</url>
+       <releases>
+           <enabled>true</enabled>
+       </releases>
+       <snapshots>
+           <enabled>false</enabled>
+       </snapshots>
+   </pluginRepository>
+   <pluginRepository>
+      <id>jboss-earlyaccess-repository</id>
+      <name>Red Hat Early Release repository</name>
+        <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+   </pluginRepository>
+   <pluginRepository>
        <id>redhat-ga-repository</id>
        <name>Red Hat GA repository</name>
-       <url>http://maven.repository.redhat.com/ga/</url>
-       <releases>
+        <url>http://maven.repository.redhat.com/ga/</url>
+          <releases>
 	 <enabled>true</enabled>
 	 <updatePolicy>never</updatePolicy>
        </releases>
@@ -64,15 +108,5 @@ under the License.
        </snapshots>
      </pluginRepository>
    </pluginRepositories>
-
-   <profiles>
-      <profile>
-         <id>release</id>
-         <modules>
-            <module>02_clustering</module>
-            <module>04_clients</module>
-         </modules>
-      </profile>
-   </profiles>
 
 </project>
