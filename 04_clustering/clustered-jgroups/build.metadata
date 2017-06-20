@@ -1,6 +1,6 @@
-# Created by buildmetadata-maven-plugin 1.7.0 ( SHA: 6f444cae ) 
+# Created by buildmetadata-maven-plugin 1.7.0 ( SHA: 6f444cae )
 build.artifactId=clustered-jgroups
-build.groupId=org.apache.activemq.examples.clustered
+build.groupId=com.gpte.redhat
 build.java.compiler=HotSpot 64-Bit Tiered Compilers
 build.java.runtime.name=Java(TM) SE Runtime Environment
 build.java.runtime.version=1.8.0_20-b26

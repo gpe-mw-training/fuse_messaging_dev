@@ -1,1 +1,1 @@
-This directory is for the .NET client code
+This directory is meant for the Microsoft .NET client.

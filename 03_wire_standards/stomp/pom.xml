@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <parent>
+      <groupId>com.gpte.redhat</groupId>
+      <artifactId>03_wire_standards</artifactId>
+      <version>1.0</version>
+   </parent>
+
+   <artifactId>stomp-messaging-app</artifactId>
+   <packaging>jar</packaging>
+   <name>STOMP Messaging App</name>
+
+   <dependencies>
+      <dependency>
+         <groupId>org.apache.activemq</groupId>
+         <artifactId>artemis-jms-client</artifactId>
+         <version>${rhjboss-amq7-version}</version>
+      </dependency>
+   </dependencies>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>artemis-maven-plugin</artifactId>
+            <dependencies>
+               <dependency>
+                  <groupId>org.apache.activemq.examples.stomp</groupId>
+                  <artifactId>stomp1.2</artifactId>
+                  <version>${rhjboss-amq7-version}</version>
+               </dependency>
+            </dependencies>
+         </plugin>
+      </plugins>
+   </build>
+
+</project>
