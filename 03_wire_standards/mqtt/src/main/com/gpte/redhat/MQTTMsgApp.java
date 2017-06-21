@@ -9,7 +9,7 @@ import org.fusesource.mqtt.client.QoS;
 import org.fusesource.mqtt.client.Topic;
 
 /**
- * MQTT messaging application for Wire Standards lab exercise
+ * MQTT messaging application for Wire Standards lab
  */
 public class MQTTMsgApp {
 
@@ -17,11 +17,18 @@ public class MQTTMsgApp {
 
       System.out.println("Connecting to Red Hat JBoss AMQ 7 via MQTT");
 
+      System.out.println("Connected to a Red Hat JBoss AMQ 7 broker");
+
       // Publish these messages using your code
       String payload1 = "This is message A";
       String payload2 = "This is message B";
       String payload3 = "This is message C";
 
-      System.out.println("Received messages.");
+      System.out.println("Subscribed to topics.");
+
+      System.out.println("Sent all the messages.");
+
+      System.out.println("Received all the messages.");
+
    }
 }
