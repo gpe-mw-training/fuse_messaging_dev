@@ -32,19 +32,20 @@ under the License.
    <name>ActiveMQ Artemis JMS Large Message Example</name>
 
    <properties>
-      <activemq.basedir>${project.basedir}/../../../..</activemq.basedir>
+      <activemq.basedir>${env.AMQBASEDIR}</activemq.basedir>
+<!--       <activemq.basedir>/Users/nandanjoshi/redhat/jboss-amq-7.0.0.redhat-1</activemq.basedir> -->
    </properties>
 
    <dependencies>
       <dependency>
          <groupId>org.apache.activemq</groupId>
          <artifactId>artemis-cli</artifactId>
-         <version>${project.version}</version>
+         <version>${rhjboss-amq7-version}</version>
       </dependency>
       <dependency>
          <groupId>org.apache.activemq</groupId>
          <artifactId>artemis-jms-client</artifactId>
-         <version>${project.version}</version>
+         <version>${rhjboss-amq7-version}</version>
       </dependency>
    </dependencies>
 
@@ -78,7 +79,7 @@ under the License.
                <dependency>
                   <groupId>org.apache.activemq.examples.broker</groupId>
                   <artifactId>large-message</artifactId>
-                  <version>${project.version}</version>
+                  <version>${rhjboss-amq7-version}</version>
                </dependency>
             </dependencies>
          </plugin>

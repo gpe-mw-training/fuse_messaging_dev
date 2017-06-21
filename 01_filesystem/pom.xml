@@ -25,32 +25,15 @@ under the License.
       <artifactId>fuse_messaging_dev</artifactId>
 <!--       <version>2.0.0.amq-700005-redhat-1</version> -->
       <version>1.0</version>
-      <relativePath>../pom.xml</relativePath>
    </parent>
 
    <groupId>com.gpte.redhat</groupId>
    <artifactId>01_filesystem</artifactId>
    <packaging>pom</packaging>
-   <name>ActiveMQ Artemis Clustered Examples</name>
+   <name>Filesystem Lab</name>
 
-   <!-- Properties -->
-   <properties>
-      <!--
-      Explicitly declaring the source encoding eliminates the following
-      message: [WARNING] Using platform encoding (UTF-8 actually) to copy
-      filtered resources, i.e. build is platform dependent!
-      -->
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <activemq.basedir>${env.AMQBASEDIR}</activemq.basedir>
-   </properties>
+   <modules>
+      <module>large-message</module>
+   </modules>
 
-   <profiles>
-      <profile>
-         <id>release</id>
-         <modules>
-            <module>large-message</module>
-<!--             <module>clustered-jgroups</module> -->
-         </modules>
-      </profile>
-   </profiles>
 </project>
