@@ -20,6 +20,7 @@
    </properties>
 
    <modules>
+       <module>01_filesystem</module>
        <module>02_clients</module>
        <module>03_wire_standards</module>
        <module>04_clustering</module>
