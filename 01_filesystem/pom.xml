@@ -34,6 +34,7 @@ under the License.
 
    <modules>
       <module>large-message</module>
+      <module>paging</module>
    </modules>
 
 </project>
