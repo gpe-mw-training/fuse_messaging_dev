@@ -27,7 +27,7 @@ under the License.
    <name>Fuse Messaging Development Labs</name>
 
    <properties>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>     
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <rhjboss-amq7-version>2.0.0.amq-700005-redhat-1</rhjboss-amq7-version>
       <activemq5-version>5.11.0.redhat-630262</activemq5-version>
       <slf4j.version>1.7.21</slf4j.version>
@@ -39,33 +39,128 @@ under the License.
    </properties>
 
    <repositories>
+       <repository>
+         <id>amq7-repository</id>
+        <name>Red Hat JBoss AMQ 7 repository</name>
+         <url>file:///opt/repos/jboss-amq-7.0.1.redhat-1-maven-repository/maven-repository</url>
+         <releases>
+             <enabled>true</enabled>
+         </releases>
+         <snapshots>
+             <enabled>false</enabled>
+         </snapshots>
+       </repository>
+       <repository>
+          <name>Red Hat AMQ 7 Qpid JMS repository</name>
+           <id>amq-qpid-jms</id>
+           <url>file:///opt/repos/jboss-amq-qpid-jms-0.21.0.redhat-1-maven-repository/maven-repository</url>
+           <releases>
+               <enabled>true</enabled>
+           </releases>
+           <snapshots>
+               <enabled>false</enabled>
+           </snapshots>
+       </repository>
+       <repository>
+           <id>jboss-earlyaccess-repository</id>
+           <name>JBoss Early Release repository</name>
+           <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
+           <releases>
+               <enabled>true</enabled>
+           </releases>
+           <snapshots>
+               <enabled>false</enabled>
+           </snapshots>
+       </repository>
      <repository>
        <id>redhat-ga-repository</id>
        <name>Red Hat GA repository</name>
        <url>http://maven.repository.redhat.com/ga/</url>
        <releases>
-	 <enabled>true</enabled>
-	 <updatePolicy>never</updatePolicy>
+	        <enabled>true</enabled>
        </releases>
        <snapshots>
-	 <enabled>false</enabled>
-	 <updatePolicy>daily</updatePolicy>
+	        <enabled>false</enabled>
        </snapshots>
    </repository>
+   <repository>
+     <id>fusesource-repo</id>
+     <name>Fuse Source repository</name>
+     <url>http://repo.fusesource.com/nexus/content/groups/public/</url>
+     <releases>
+       <enabled>true</enabled>
+     </releases>
+     <snapshots>
+       <enabled>false</enabled>
+     </snapshots>
+   </repository>
+   <repository>
+     <id>fusesource-snapshots</id>
+     <name>Fuse Source snapshots</name>
+     <url>http://repo.fusesource.com/nexus/content/repositories/snapshots</url>
+   </repository>
    </repositories>
+
    <pluginRepositories>
-     <pluginRepository>
-       <id>redhat-ga-repository</id>
-       <name>Red Hat GA repository</name>
-       <url>http://maven.repository.redhat.com/ga/</url>
+   <pluginRepository>
+       <id>amq7-repository</id>
+       <name>Red Hat JBoss AMQ 7 repository</name>
+       <url>file:///opt/repos/jboss-amq-7.0.1.redhat-1-maven-repository/maven-repository</url>
        <releases>
-	 <enabled>true</enabled>
-	 <updatePolicy>never</updatePolicy>
+           <enabled>true</enabled>
        </releases>
        <snapshots>
-	 <enabled>false</enabled>
-	 <updatePolicy>daily</updatePolicy>
+           <enabled>false</enabled>
        </snapshots>
+   </pluginRepository>
+   <pluginRepository>
+       <id>amq-qpid-jms</id>
+       <name>Red Hat AMQ 7 Qpid JMS repository</name>
+       <url>file:///opt/repos/jboss-amq-qpid-jms-0.21.0.redhat-1-maven-repository/maven-repository</url>
+       <releases>
+           <enabled>true</enabled>
+       </releases>
+       <snapshots>
+           <enabled>false</enabled>
+       </snapshots>
+   </pluginRepository>
+   <pluginRepository>
+      <id>jboss-earlyaccess-repository</id>
+      <name>JBoss Early Release repository</name>
+        <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+   </pluginRepository>
+   <pluginRepository>
+       <id>redhat-ga-repository</id>
+       <name>Red Hat GA repository</name>
+        <url>http://maven.repository.redhat.com/ga/</url>
+          <releases>
+	           <enabled>true</enabled>
+          </releases>
+       <snapshots>
+	        <enabled>false</enabled>
+       </snapshots>
+     </pluginRepository>
+     <pluginRepository>
+       <id>fusesource-repo</id>
+       <name>Fuse Source repository</name>
+       <url>http://repo.fusesource.com/nexus/content/groups/public/</url>
+       <releases>
+         <enabled>true</enabled>
+       </releases>
+       <snapshots>
+         <enabled>false</enabled>
+       </snapshots>
+     </pluginRepository>
+     <pluginRepository>
+       <id>fusesource-snapshots</id>
+       <name>Fuse Source snapshots</name>
+       <url>http://repo.fusesource.com/nexus/content/repositories/snapshots</url>
      </pluginRepository>
    </pluginRepositories>
 
