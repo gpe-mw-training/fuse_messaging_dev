@@ -14,27 +14,13 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * This is a custom built messaging app that delivers messages over Stomp 1.2 on a TCP socket
- * and also consumes those messages via a JMS MessageConsumer.
  */
 public class StompMessagingApp {
 
    private static final String END_OF_FRAME = "\u0000";
 
    public static void main(final String[] args) throws Exception {
-      Connection connection = null;
-      InitialContext initialContext = null;
 
-      try {
-
-      } finally {
-
-         if (initialContext != null) {
-            initialContext.close();
-         }
-         if (connection != null) {
-            connection.close();
-         }
-      }
    }
 
    private static void sendFrame(Socket socket, String data) throws Exception {

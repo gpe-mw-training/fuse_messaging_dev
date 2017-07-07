@@ -55,7 +55,7 @@
                      <goal>runClient</goal>
                   </goals>
                   <configuration>
-                     <clientClass>com.gpte.redhat.StompMessagingApp</clientClass>
+                     <clientClass>com.gpte.redhat.JMSConsumerApp</clientClass>
                   </configuration>
                </execution>
                <execution>
