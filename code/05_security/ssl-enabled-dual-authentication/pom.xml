@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <groupId>com.gpte.redhat</groupId>
+      <artifactId>05_security</artifactId>
+      <version>1.0</version>
+   </parent>
+
+   <artifactId>ssl-enabled-dual-authentication</artifactId>
+   <packaging>jar</packaging>
+   <name>SSL Enabled Dual Authentication Lab Exercise</name>
+
+   <properties>
+      <activemq.basedir>${env.AMQBASEDIR}</activemq.basedir>
+   </properties>
+
+   <dependencies>
+      <dependency>
+         <groupId>org.apache.activemq</groupId>
+         <artifactId>artemis-jms-client</artifactId>
+         <version>${rhjboss-amq7-version}</version>
+      </dependency>
+   </dependencies>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>artemis-maven-plugin</artifactId>
+     <executions>
+       <execution>
+         <id>create</id>
+         <goals>
+           <goal>create</goal>
+         </goals>
+         <configuration>
+           <ignore>${noServer}</ignore>
+         </configuration>
+       </execution>
+       <execution>
+         <id>start</id>
+         <goals>
+           <goal>cli</goal>
+         </goals>
+         <configuration>
+           <ignore>${noServer}</ignore>
+           <spawn>true</spawn>
+           <testURI>tcp://localhost:61616</testURI>
+           <testUser>consumer</testUser>
+           <testPassword>activemq</testPassword>
+           <args>
+             <param>run</param>
+           </args>
+         </configuration>
+       </execution>
+       <execution>
+         <id>runClient</id>
+         <goals>
+           <goal>runClient</goal>
+         </goals>
+         <configuration>
+           <clientClass>org.apache.activemq.artemis.jms.example.SSLDualAuthenticationExample</clientClass>
+         </configuration>
+       </execution>
+       <execution>
+         <id>stop</id>
+         <goals>
+           <goal>cli</goal>
+         </goals>
+         <configuration>
+           <ignore>${noServer}</ignore>
+           <args>
+             <param>stop</param>
+           </args>
+         </configuration>
+       </execution>
+     </executions>
+            <dependencies>
+               <dependency>
+                  <groupId>org.apache.activemq.examples.broker</groupId>
+                  <artifactId>ssl-enabled-dual-authentication</artifactId>
+                  <version>${rhjboss-amq7-version}</version>
+               </dependency>
+            </dependencies>
+         </plugin>
+      </plugins>
+   </build>
+
+</project>
