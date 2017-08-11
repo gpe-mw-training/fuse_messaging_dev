@@ -23,45 +23,71 @@ public class SSLDualAuthenticationExample {
          initialContext = new InitialContext();
 
          // Step 2. Perfom a lookup on the queue
+	 //EXCLUDE-BEGIN
          Queue queue = (Queue) initialContext.lookup("queue/exampleQueue");
+	 //EXCLUDE-END
 
          // Step 3. Perform a lookup on the producer's SSL Connection Factory
+	 //EXCLUDE-BEGIN
          ConnectionFactory producerConnectionFactory = (ConnectionFactory) initialContext.lookup("SslConnectionFactory");
+	 //EXCLUDE-END
 
          // Step 4. Perform a lookup on the consumer's Connection Factory
+	 //EXCLUDE-BEGIN
          ConnectionFactory consumerConnectionFactory = (ConnectionFactory) initialContext.lookup("ConnectionFactory");
+	 //EXCLUDE-END
 
          // Step 5.Create a JMS Connection for the producer
+	 //EXCLUDE-BEGIN
          producerConnection = producerConnectionFactory.createConnection();
+	 //EXCLUDE-END
 
          // Step 6.Create a JMS Connection for the consumer
+	 //EXCLUDE-BEGIN
          consumerConnection = consumerConnectionFactory.createConnection("consumer", "activemq");
+	 //EXCLUDE-END
 
          // Step 7. Create a JMS Session for the producer
+	 //EXCLUDE-BEGIN
          Session producerSession = producerConnection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+	 //EXCLUDE-END
 
          // Step 8. Create a JMS Session for the consumer
+	 //EXCLUDE-BEGIN
          Session consumerSession = consumerConnection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+	 //EXCLUDE-END
 
          // Step 9. Create a JMS Message Producer
+	 //EXCLUDE-BEGIN
          MessageProducer producer = producerSession.createProducer(queue);
+	 //EXCLUDE-END
 
          // Step 10. Create a Text Message
+	 //EXCLUDE-BEGIN
          TextMessage message = producerSession.createTextMessage("This is a text message");
+	 //EXCLUDE-END
 
          System.out.println("Sent message: " + message.getText());
 
          // Step 11. Send the Message
+	 //EXCLUDE-BEGIN
          producer.send(message);
+	 //EXCLUDE-END
 
          // Step 12. Create a JMS Message Consumer
+	 //EXCLUDE-BEGIN
          MessageConsumer messageConsumer = consumerSession.createConsumer(queue);
+	 //EXCLUDE-END
 
          // Step 13. Start the Connection
+	 //EXCLUDE-BEGIN
          consumerConnection.start();
+	 //EXCLUDE-END
 
          // Step 14. Receive the message
+	 //EXCLUDE-BEGIN
          TextMessage messageReceived = (TextMessage) messageConsumer.receive(5000);
+	 //EXCLUDE-END
 
          System.out.println("Received message: " + messageReceived.getText());
 

@@ -19,6 +19,20 @@ public class JMSConsumerApp {
 
       try {
 
+         initialContext = new InitialContext();
+
+         Queue queue = (Queue) initialContext.lookup("queue/gpteQueue");
+         ConnectionFactory cf = (ConnectionFactory) initialContext.lookup("ConnectionFactory");
+
+         connection = cf.createConnection();
+
+         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+         MessageConsumer consumer = session.createConsumer(queue);
+
+         connection.start();
+
+         TextMessage messageReceived = (TextMessage) consumer.receive(5000);
+         System.out.println("Received JMS message: " + messageReceived.getText());
 
       } finally {
 

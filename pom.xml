@@ -39,29 +39,7 @@ under the License.
    </properties>
 
    <repositories>
-       <repository>
-         <id>amq7-repository</id>
-        <name>Red Hat JBoss AMQ 7 repository</name>
-         <url>file:///opt/repos/jboss-amq-7.0.1.redhat-1-maven-repository/maven-repository</url>
-         <releases>
-             <enabled>true</enabled>
-         </releases>
-         <snapshots>
-             <enabled>false</enabled>
-         </snapshots>
-       </repository>
-       <repository>
-          <name>Red Hat AMQ 7 Qpid JMS repository</name>
-           <id>amq-qpid-jms</id>
-           <url>file:///opt/repos/jboss-amq-qpid-jms-0.21.0.redhat-1-maven-repository/maven-repository</url>
-           <releases>
-               <enabled>true</enabled>
-           </releases>
-           <snapshots>
-               <enabled>false</enabled>
-           </snapshots>
-       </repository>
-       <repository>
+      <repository>
            <id>jboss-earlyaccess-repository</id>
            <name>JBoss Early Release repository</name>
            <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
@@ -71,7 +49,7 @@ under the License.
            <snapshots>
                <enabled>false</enabled>
            </snapshots>
-       </repository>
+      </repository>
      <repository>
        <id>redhat-ga-repository</id>
        <name>Red Hat GA repository</name>
@@ -102,28 +80,6 @@ under the License.
    </repositories>
 
    <pluginRepositories>
-   <pluginRepository>
-       <id>amq7-repository</id>
-       <name>Red Hat JBoss AMQ 7 repository</name>
-       <url>file:///opt/repos/jboss-amq-7.0.1.redhat-1-maven-repository/maven-repository</url>
-       <releases>
-           <enabled>true</enabled>
-       </releases>
-       <snapshots>
-           <enabled>false</enabled>
-       </snapshots>
-   </pluginRepository>
-   <pluginRepository>
-       <id>amq-qpid-jms</id>
-       <name>Red Hat AMQ 7 Qpid JMS repository</name>
-       <url>file:///opt/repos/jboss-amq-qpid-jms-0.21.0.redhat-1-maven-repository/maven-repository</url>
-       <releases>
-           <enabled>true</enabled>
-       </releases>
-       <snapshots>
-           <enabled>false</enabled>
-       </snapshots>
-   </pluginRepository>
    <pluginRepository>
       <id>jboss-earlyaccess-repository</id>
       <name>JBoss Early Release repository</name>

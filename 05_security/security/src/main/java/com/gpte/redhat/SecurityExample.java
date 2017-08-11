@@ -28,81 +28,115 @@ public class SecurityExample {
          initialContext = new InitialContext();
 
          // Step 2. perform lookup on the topics
+	 //EXCLUDE-BEGIN
          Topic genericTopic = (Topic) initialContext.lookup("topic/genericTopic");
          Topic europeTopic = (Topic) initialContext.lookup("topic/europeTopic");
          Topic usTopic = (Topic) initialContext.lookup("topic/usTopic");
+	 //EXCLUDE-END
 
          // Step 3. perform a lookup on the Connection Factory
+	 //EXCLUDE-BEGIN
          ConnectionFactory cf = (ConnectionFactory) initialContext.lookup("ConnectionFactory");
+	 //EXCLUDE-END
 
          // Step 4. Try to create a JMS Connection without user/password. It will fail.
          try {
+	 //EXCLUDE-BEGIN
             failConnection = cf.createConnection();
             result = false;
+	 //EXCLUDE-END
          } catch (JMSSecurityException e) {
             System.out.println("Default user cannot get a connection. Details: " + e.getMessage());
          }
 
          // Step 5. bill tries to make a connection using wrong password
          try {
+	 //EXCLUDE-BEGIN
             billConnection = createConnection("bill", "activemq1", cf);
             result = false;
+	 //EXCLUDE-END
          } catch (JMSException e) {
             System.out.println("User bill failed to connect. Details: " + e.getMessage());
          }
 
          // Step 6. bill makes a good connection.
+	 //EXCLUDE-BEGIN
          billConnection = createConnection("bill", "activemq", cf);
          billConnection.start();
+	 //EXCLUDE-END
 
          // Step 7. andrew makes a good connection.
+	 //EXCLUDE-BEGIN
          andrewConnection = createConnection("andrew", "activemq1", cf);
          andrewConnection.start();
+	 //EXCLUDE-END
 
          // Step 8. frank makes a good connection.
+	 //EXCLUDE-BEGIN
          frankConnection = createConnection("frank", "activemq2", cf);
          frankConnection.start();
+	 //EXCLUDE-END
 
          // Step 9. sam makes a good connection.
+	 //EXCLUDE-BEGIN
          samConnection = createConnection("sam", "activemq3", cf);
          samConnection.start();
+	 //EXCLUDE-END
 
          // Step 10. Check every user can publish/subscribe genericTopics.
          System.out.println("------------------------Checking permissions on " + genericTopic + "----------------");
+	 //EXCLUDE-BEGIN
          checkUserSendAndReceive(genericTopic, billConnection, "bill");
          checkUserSendAndReceive(genericTopic, andrewConnection, "andrew");
          checkUserSendAndReceive(genericTopic, frankConnection, "frank");
          checkUserSendAndReceive(genericTopic, samConnection, "sam");
+	 //EXCLUDE-END
          System.out.println("-------------------------------------------------------------------------------------");
 
          System.out.println("------------------------Checking permissions on " + europeTopic + "----------------");
 
          // Step 11. Check permissions on news.europe.europeTopic for bill: can't send and can't receive
+	 //EXCLUDE-BEGIN
          checkUserNoSendNoReceive(europeTopic, billConnection, "bill");
+	 //EXCLUDE-END
 
          // Step 12. Check permissions on news.europe.europeTopic for andrew: can send but can't receive
+	 //EXCLUDE-BEGIN
          checkUserSendNoReceive(europeTopic, andrewConnection, "andrew", frankConnection);
+	 //EXCLUDE-END
 
          // Step 13. Check permissions on news.europe.europeTopic for frank: can't send but can receive
+	 //EXCLUDE-BEGIN
          checkUserReceiveNoSend(europeTopic, frankConnection, "frank", andrewConnection);
+	 //EXCLUDE-END
 
          // Step 14. Check permissions on news.europe.europeTopic for sam: can't send but can receive
+	 //EXCLUDE-BEGIN
          checkUserReceiveNoSend(europeTopic, samConnection, "sam", andrewConnection);
+	 //EXCLUDE-END
          System.out.println("-------------------------------------------------------------------------------------");
 
          System.out.println("------------------------Checking permissions on " + usTopic + "----------------");
 
          // Step 15. Check permissions on news.us.usTopic for bill: can't send and can't receive
+	 //EXCLUDE-BEGIN
          checkUserNoSendNoReceive(usTopic, billConnection, "bill");
+	 //EXCLUDE-END
 
          // Step 16. Check permissions on news.us.usTopic for andrew: can't send and can't receive
+	 //EXCLUDE-BEGIN
          checkUserNoSendNoReceive(usTopic, andrewConnection, "andrew");
+	 //EXCLUDE-END
 
          // Step 17. Check permissions on news.us.usTopic for frank: can both send and receive
+	 //EXCLUDE-BEGIN
          checkUserSendAndReceive(usTopic, frankConnection, "frank");
+	 //EXCLUDE-END
 
          // Step 18. Check permissions on news.us.usTopic for sam: can't send but can receive
+	 //EXCLUDE-BEGIN
          checkUserReceiveNoSend(usTopic, samConnection, "sam", frankConnection);
+	 //EXCLUDE-END
          System.out.println("-------------------------------------------------------------------------------------");
       } finally {
          // Step 19. Be sure to close our JMS resources!
