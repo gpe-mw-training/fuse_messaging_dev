@@ -26,12 +26,19 @@ under the License.
    <version>1.0</version>
    <name>Fuse Messaging Development Labs</name>
 
+   <modules>
+     <module>01_filesystem</module>
+     <module>02_clients</module>
+     <module>03_wire_standards</module>
+     <module>04_clustering</module>
+     <module>05_security</module>
+   </modules>
+
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <rhjboss-amq7-version>2.0.0.amq-700005-redhat-1</rhjboss-amq7-version>
-      <activemq5-version>5.11.0.redhat-630262</activemq5-version>
+      <rhjboss-amq7-version>2.0.0.amq-700008-redhat-2</rhjboss-amq7-version>
       <slf4j.version>1.7.21</slf4j.version>
-      <qpid-jms-client.version>0.23.0</qpid-jms-client.version>
+      <qpid-jms-client.version>0.21.0.redhat-1</qpid-jms-client.version>
       <udp-address>231.7.7.7</udp-address>
       <maven.compiler.source>1.8</maven.compiler.source>
       <maven.compiler.target>1.8</maven.compiler.target>
@@ -42,7 +49,7 @@ under the License.
        <repository>
          <id>amq7-repository</id>
         <name>Red Hat JBoss AMQ 7 repository</name>
-         <url>file:///opt/repos/jboss-amq-7.0.1.redhat-1-maven-repository/maven-repository</url>
+         <url>file:///opt/repos/jboss-amq-7.0.1.GA-maven-repository/maven-repository</url>
          <releases>
              <enabled>true</enabled>
          </releases>
@@ -105,7 +112,7 @@ under the License.
    <pluginRepository>
        <id>amq7-repository</id>
        <name>Red Hat JBoss AMQ 7 repository</name>
-       <url>file:///opt/repos/jboss-amq-7.0.1.redhat-1-maven-repository/maven-repository</url>
+       <url>file:///opt/repos/jboss-amq-7.0.1.GA-maven-repository/maven-repository</url>
        <releases>
            <enabled>true</enabled>
        </releases>
@@ -164,17 +171,5 @@ under the License.
      </pluginRepository>
    </pluginRepositories>
 
-   <profiles>
-      <profile>
-         <id>release</id>
-         <modules>
-	   <module>01_filesystem</module>
-	   <module>02_clients</module>
-	   <module>03_wire_standards</module>
-	   <module>04_clustering</module>
-	   <module>05_security</module>
-         </modules>
-      </profile>
-   </profiles>
 
 </project>

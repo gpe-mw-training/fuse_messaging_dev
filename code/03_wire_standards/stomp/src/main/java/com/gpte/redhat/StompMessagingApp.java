@@ -21,36 +21,15 @@ public class StompMessagingApp {
 
    public static void main(final String[] args) throws Exception {
 
-         Socket socket = new Socket("localhost", 61613);
+   //Step 1. Create a TCP socket
 
-         String connectFrame = "CONNECT\n" +
-            "accept-version:1.2\n" +
-            "host:localhost\n" +
-            "login:guest\n" +
-            "passcode:guest\n" +
-            "request-id:1\n" +
-            "\n" +
-            END_OF_FRAME;
-         sendFrame(socket, connectFrame);
+   //Step 2. Send a CONNECT frame to connect to the AMQ 7 broker
 
-         String response = receiveFrame(socket);
-         System.out.println("response: " + response);
+   //Step 3. Send a SEND frame containing a body of text to the address of gpteQueue
 
-         String text = "This is a message sent using Stomp 1.2";
-         String message = "SEND\n" +
-            "destination:gpteQueue\n" +
-            "\n" +
-            text +
-            END_OF_FRAME;
-         sendFrame(socket, message);
-         System.out.println("Sent Stomp message: " + text);
+   //Step 4. Send a DISCONNECT frame to disconnect from the broker
 
-         String disconnectFrame = "DISCONNECT\n" +
-            "\n" +
-            END_OF_FRAME;
-         sendFrame(socket, disconnectFrame);
-
-         socket.close();
+   //Step 5. Close the TCP socket
 
    }
 

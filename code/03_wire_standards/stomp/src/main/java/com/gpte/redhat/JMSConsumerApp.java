@@ -18,21 +18,14 @@ public class JMSConsumerApp {
       InitialContext initialContext = null;
 
       try {
+   //Step 1. Creates an initial context that performs a JNDI lookup for the queue and then performs a lookup of both the queue and the connection factory
 
-         initialContext = new InitialContext();
 
-         Queue queue = (Queue) initialContext.lookup("queue/gpteQueue");
-         ConnectionFactory cf = (ConnectionFactory) initialContext.lookup("ConnectionFactory");
+   //Step 2. Creates a JMS session, a JMS connection, and a MessageConsumer
 
-         connection = cf.createConnection();
+   //Step 3. Initiates the JMS connection
 
-         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-         MessageConsumer consumer = session.createConsumer(queue);
-
-         connection.start();
-
-         TextMessage messageReceived = (TextMessage) consumer.receive(5000);
-         System.out.println("Received JMS message: " + messageReceived.getText());
+   //Step 4. Receives the STOMP message and removes all used JMS resources
 
       } finally {
 
