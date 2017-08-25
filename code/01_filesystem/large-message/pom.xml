@@ -30,10 +30,6 @@ under the License.
    <packaging>jar</packaging>
    <name>ActiveMQ Artemis JMS Large Message Example</name>
 
-   <properties>
-      <activemq.basedir>${env.AMQBASEDIR}</activemq.basedir>
-   </properties>
-
    <dependencies>
       <dependency>
          <groupId>org.apache.activemq</groupId>
@@ -46,42 +42,5 @@ under the License.
          <version>${rhjboss-amq7-version}</version>
       </dependency>
    </dependencies>
-
-   <build>
-      <plugins>
-         <plugin>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>artemis-maven-plugin</artifactId>
-            <executions>
-               <execution>
-                  <id>create</id>
-                  <goals>
-                     <goal>create</goal>
-                  </goals>
-               </execution>
-               <execution>
-                  <id>runClient</id>
-                  <goals>
-                     <goal>runClient</goal>
-                  </goals>
-                  <configuration>
-                     <clientClass>org.apache.activemq.artemis.jms.example.LargeMessageExample</clientClass>
-                     <args>
-                        <param>${basedir}/target/server0</param>
-                        <param>true</param> <!-- delete the large files sent and received? -->
-                     </args>
-                  </configuration>
-               </execution>
-            </executions>
-            <dependencies>
-               <dependency>
-                  <groupId>org.apache.activemq.examples.broker</groupId>
-                  <artifactId>large-message</artifactId>
-                  <version>${rhjboss-amq7-version}</version>
-               </dependency>
-            </dependencies>
-         </plugin>
-      </plugins>
-   </build>
 
 </project>

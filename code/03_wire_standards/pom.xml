@@ -18,39 +18,6 @@
       <udp-address>231.7.7.7</udp-address>
    </properties>
 
-   <profiles>
-      <profile>
-         <!-- specify -PnoServer if you don't want to start the servers on the tests -->
-         <id>noServer</id>
-         <properties>
-            <noServer>true</noServer>
-         </properties>
-      </profile>
-      <profile>
-         <!-- specify -PnoClient if you don't want to run the client part -->
-         <id>noClient</id>
-         <properties>
-            <noClient>true</noClient>
-         </properties>
-      </profile>
-      <profile>
-         <!-- the profile release won't execute anything. just compile and whatever else is needed -->
-         <id>release</id>
-         <properties>
-            <noServer>true</noServer>
-            <noClient>true</noClient>
-         </properties>
-      </profile>
-      <profile>
-         <!-- the profile release won't execute anything. just compile and whatever else is needed -->
-         <id>noRun</id>
-         <properties>
-            <noServer>true</noServer>
-            <noClient>true</noClient>
-         </properties>
-      </profile>
-   </profiles>
-
    <modules>
       <module>mqtt</module>
       <module>stomp</module>

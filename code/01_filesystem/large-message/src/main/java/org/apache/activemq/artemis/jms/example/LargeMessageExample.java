@@ -60,22 +60,14 @@ public class LargeMessageExample {
          server = ServerUtil.startServer(args[0], LargeMessageExample.class.getSimpleName(), 0, 5000);
 
          // Step 1. Create an initial context to perform the JNDI lookup.
-         initialContext = new InitialContext();
 
          // Step 2. Perfom a lookup on the queue
-         Queue queue = (Queue) initialContext.lookup("queue/exampleQueue");
 
          // Step 3. Perform a lookup on the Connection Factory. This ConnectionFactory has a special attribute set on
          // it.
          // Messages with more than 10K are considered large
-         ConnectionFactory cf = (ConnectionFactory) initialContext.lookup("ConnectionFactory");
 
          // Step 4. Create the JMS objects
-         connection = cf.createConnection();
-
-         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-
-         MessageProducer producer = session.createProducer(queue);
 
          // Step 5. Create a huge file - this will form the body of the message we will send.
 
@@ -103,7 +95,6 @@ public class LargeMessageExample {
          System.out.println("Sending the huge message.");
 
          // Step 9. Send the Message
-         producer.send(message);
 
          System.out.println("Large Message sent");
 
@@ -115,9 +106,6 @@ public class LargeMessageExample {
          // normal persistent message, on the server. If you look at ./build/data/largeMessages you will see the
          // largeMessage stored on disk the server
 
-         connection.close();
-
-         initialContext.close();
 
          ServerUtil.killServer(server);
 
@@ -127,19 +115,6 @@ public class LargeMessageExample {
 
          // Step 11. Now the server is restarted we can recreate the JMS Objects, and start the new connection
 
-         initialContext = new InitialContext();
-
-         queue = (Queue) initialContext.lookup("queue/exampleQueue");
-
-         cf = (ConnectionFactory) initialContext.lookup("ConnectionFactory");
-
-         connection = cf.createConnection();
-
-         session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-
-         MessageConsumer messageConsumer = session.createConsumer(queue);
-
-         connection.start();
 
          System.out.println("Receiving message.");
 

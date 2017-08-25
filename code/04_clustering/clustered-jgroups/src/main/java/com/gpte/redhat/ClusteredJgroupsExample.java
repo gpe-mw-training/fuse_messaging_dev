@@ -37,16 +37,22 @@ public class ClusteredJgroupsExample {
          // Step 3. Look-up a JMS Connection Factory object from JNDI on server 0
 
          // Step 4. Get an initial context for looking up JNDI from server 1
+	 System.out.println("Created InitialContext\n");
 
          // Step 5. Look-up a JMS Connection Factory object from JNDI on server 1
+	 System.out.println("Created ConnectionFactory\n");
 
          // Step 6. We create a JMS Connection connection0 which is a connection to server 0
+	 System.out.println("Created Connection0\n");
 
          // Step 7. We create a JMS Connection connection1 which is a connection to server 1
+	 System.out.println("Created Connection1\n");
 
          // Step 8. We create a JMS Session on server 0
+	 System.out.println("Created Session0\n");
 
          // Step 9. We create a JMS Session on server 1
+	 System.out.println("Created Session1\n");
 
          // Step 10. We start the connections to ensure delivery occurs on them
 
@@ -65,7 +71,7 @@ public class ClusteredJgroupsExample {
          // maximum of one consumer
 
          for (int i = 0; i < numMessages; i += 2) {
-            System.out.println("Got message: " + message1.getText() + " from node 1");
+	    System.out.println("Got message: " + message1.getText() + " from node 1");
          }
       } finally {
          // Step 15. Be sure to close our resources!

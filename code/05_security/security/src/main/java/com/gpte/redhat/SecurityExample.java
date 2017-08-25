@@ -77,6 +77,7 @@ public class SecurityExample {
          // Step 18. Check permissions on news.us.usTopic for sam: can't send but can receive
          System.out.println("-------------------------------------------------------------------------------------");
       } finally {
+	     System.out.println("dropped into finally");
          // Step 19. Be sure to close our JMS resources!
          if (failConnection != null) {
             failConnection.close();
@@ -96,6 +97,7 @@ public class SecurityExample {
 
          // Also the initialContext
          if (initialContext != null) {
+	     System.out.println("closing initialContext");
             initialContext.close();
          }
       }

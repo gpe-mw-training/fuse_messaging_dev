@@ -42,14 +42,13 @@ under the License.
       <udp-address>231.7.7.7</udp-address>
       <maven.compiler.source>1.8</maven.compiler.source>
       <maven.compiler.target>1.8</maven.compiler.target>
-      <activemq.basedir>${env.AMQBASEDIR}</activemq.basedir>
    </properties>
 
    <repositories>
        <repository>
          <id>amq7-repository</id>
         <name>Red Hat JBoss AMQ 7 repository</name>
-         <url>file:///opt/repos/jboss-amq-7.0.1.GA-maven-repository/maven-repository</url>
+         <url>file:///opt/repos/amq/jboss-amq-7.0.1.GA-maven-repository/maven-repository</url>
          <releases>
              <enabled>true</enabled>
          </releases>
@@ -60,7 +59,7 @@ under the License.
        <repository>
           <name>Red Hat AMQ 7 Qpid JMS repository</name>
            <id>amq-qpid-jms</id>
-           <url>file:///opt/repos/jboss-amq-qpid-jms-0.21.0.redhat-1-maven-repository/maven-repository</url>
+           <url>file:///opt/repos/amq/jboss-amq-qpid-jms-0.21.0.redhat-1-maven-repository/maven-repository</url>
            <releases>
                <enabled>true</enabled>
            </releases>
@@ -112,7 +111,7 @@ under the License.
    <pluginRepository>
        <id>amq7-repository</id>
        <name>Red Hat JBoss AMQ 7 repository</name>
-       <url>file:///opt/repos/jboss-amq-7.0.1.GA-maven-repository/maven-repository</url>
+       <url>file:///opt/repos/amq/jboss-amq-7.0.1.GA-maven-repository/maven-repository</url>
        <releases>
            <enabled>true</enabled>
        </releases>
@@ -123,7 +122,7 @@ under the License.
    <pluginRepository>
        <id>amq-qpid-jms</id>
        <name>Red Hat AMQ 7 Qpid JMS repository</name>
-       <url>file:///opt/repos/jboss-amq-qpid-jms-0.21.0.redhat-1-maven-repository/maven-repository</url>
+       <url>file:///opt/repos/amq/jboss-amq-qpid-jms-0.21.0.redhat-1-maven-repository/maven-repository</url>
        <releases>
            <enabled>true</enabled>
        </releases>

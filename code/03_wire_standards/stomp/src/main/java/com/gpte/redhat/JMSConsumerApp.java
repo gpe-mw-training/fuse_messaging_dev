@@ -20,7 +20,6 @@ public class JMSConsumerApp {
       try {
    //Step 1. Creates an initial context that performs a JNDI lookup for the queue and then performs a lookup of both the queue and the connection factory
 
-
    //Step 2. Creates a JMS session, a JMS connection, and a MessageConsumer
 
    //Step 3. Initiates the JMS connection
