@@ -82,16 +82,12 @@ public class LargeMessageExample {
          System.out.println("File created.");
 
          // Step 6. Create a BytesMessage
-         BytesMessage message = session.createBytesMessage();
-
+         BytesMessage message;
          // Step 7. We set the InputStream on the message. When sending the message will read the InputStream
          // until it gets EOF. In this case we point the InputStream at a file on disk, and it will suck up the entire
          // file, however we could use any InputStream not just a FileInputStream.
          FileInputStream fileInputStream = new FileInputStream(inputFile);
          BufferedInputStream bufferedInput = new BufferedInputStream(fileInputStream);
-
-         message.setObjectProperty("JMS_AMQ_InputStream", bufferedInput);
-
          System.out.println("Sending the huge message.");
 
          // Step 9. Send the Message
@@ -120,11 +116,7 @@ public class LargeMessageExample {
 
          // Step 12. Receive the message. When we receive the large message we initially just receive the message with
          // an empty body.
-         BytesMessage messageReceived = (BytesMessage) messageConsumer.receive(120000);
-
-         System.out.println("Received message with: " + messageReceived.getLongProperty("_AMQ_LARGE_SIZE") +
-                               " bytes. Now streaming to file on disk.");
-
+         BytesMessage messageReceived;
          // Step 13. We set an OutputStream on the message. This causes the message body to be written to the
          // OutputStream until there are no more bytes to be written.
          // You don't have to use a FileOutputStream, you can use any OutputStream.
@@ -137,7 +129,6 @@ public class LargeMessageExample {
             BufferedOutputStream bufferedOutput = new BufferedOutputStream(fileOutputStream);
 
             // Step 14. This will save the stream and wait until the entire message is written before continuing.
-            messageReceived.setObjectProperty("JMS_AMQ_SaveStream", bufferedOutput);
          }
 
          System.out.println("File streamed to disk. Size of received file on disk is " + outputFile.length());

@@ -65,13 +65,18 @@ public class ClusteredJgroupsExample {
          // Step 13. We send some messages to server 0
 
 
+         final int numMessages = 10;
+
+         for (int i = 0; i < numMessages; i++) {
+         }
+
+
          // Step 14. We now consume those messages on *both* server 0 and server 1.
          // We note the messages have been distributed between servers in a round robin fashion
          // JMS Queues implement point-to-point message where each message is only ever consumed by a
          // maximum of one consumer
 
          for (int i = 0; i < numMessages; i += 2) {
-	    System.out.println("Got message: " + message1.getText() + " from node 1");
          }
       } finally {
          // Step 15. Be sure to close our resources!

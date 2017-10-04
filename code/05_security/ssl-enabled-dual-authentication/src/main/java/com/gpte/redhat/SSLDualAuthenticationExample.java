@@ -39,6 +39,7 @@ public class SSLDualAuthenticationExample {
          // Step 9. Create a JMS Message Producer
 
          // Step 10. Create a Text Message
+         TextMessage message = null;
 
          System.out.println("Sent message: " + message.getText());
 
@@ -49,6 +50,7 @@ public class SSLDualAuthenticationExample {
          // Step 13. Start the Connection
 
          // Step 14. Receive the message
+         TextMessage messageReceived = null;
 
          System.out.println("Received message: " + messageReceived.getText());
 

@@ -28,20 +28,26 @@ public class SecurityExample {
          initialContext = new InitialContext();
 
          // Step 2. perform lookup on the topics
+         Topic genericTopic = (Topic) initialContext.lookup("topic/genericTopic");
+         Topic europeTopic = (Topic) initialContext.lookup("topic/europeTopic");
+         Topic usTopic = (Topic) initialContext.lookup("topic/usTopic");
 
          // Step 3. perform a lookup on the Connection Factory
 
          // Step 4. Try to create a JMS Connection without user/password. It will fail.
          try {
-         } catch (JMSSecurityException e) {
-            System.out.println("Default user cannot get a connection. Details: " + e.getMessage());
+         }
+          catch (Exception e) {
+           System.out.println("A non-JMSSecurityException occurred: " + e.getMessage());
          }
 
          // Step 5. bill tries to make a connection using wrong password
          try {
-         } catch (JMSException e) {
-            System.out.println("User bill failed to connect. Details: " + e.getMessage());
          }
+        catch (Exception e) {
+            System.out.println("A non-JMSException occurred: " + e.getMessage());
+         }
+
 
          // Step 6. bill makes a good connection.
 
