@@ -41,10 +41,6 @@ public class ClusteredQueueExample {
          // Step 10. We start the connections to ensure delivery occurs on them
 
          // Step 11. We create JMS MessageConsumer objects on server 0 and server 1
-
-         // Step 12. We create a JMS MessageProducer object on server 0
-         MessageProducer producer = session0.createProducer(queue);
-	 // EXCLUDE-END
         // Step 13. We send some messages to server 0
 
          final int numMessages = 10;
